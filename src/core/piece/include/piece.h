@@ -17,6 +17,8 @@ typedef struct PIECE_T {
   color_attribute color;
 } piece;
 
+piece * init_piece(piece_type type, color_attribute color);
 void debug_piece(piece the_piece, uint8_t called);
+void free_piece(piece * the_piece);
 
 #endif
