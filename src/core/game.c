@@ -5,15 +5,50 @@ game * init_game(void) {
   the_game->the_board = init_board();
   the_game->players[0] = init_player(WHITE);
   the_game->players[1] = init_player(BLACK);
+  setup_board(the_game->players[0], the_game->the_board);
+  setup_board(the_game->players[1], the_game->the_board);
   the_game->current_move = 0;
   return the_game;
 }
 
-// void setup_board(player * the_player, board * the_board) {
-//   if(the_player->color == WHITE) {
-//   } else {
-//   }
-// }
+void setup_board(player * the_player, board * the_board) {
+  int file_offset = 0;
+  if(the_player->color == WHITE)
+    file_offset = 7;
+  // King
+  assert_occupation(the_player->pieces[0],
+      the_board->squares[file_offset][4]);
+  // Queen
+  assert_occupation(the_player->pieces[1],
+      the_board->squares[file_offset][3]);
+  // Rook
+  assert_occupation(the_player->pieces[2],
+      the_board->squares[file_offset][0]);
+  assert_occupation(the_player->pieces[3],
+      the_board->squares[file_offset][7]);
+  // Bishop
+  assert_occupation(the_player->pieces[4],
+      the_board->squares[file_offset][5]);
+  assert_occupation(the_player->pieces[5],
+      the_board->squares[file_offset][2]);
+  // Knight
+  assert_occupation(the_player->pieces[6],
+      the_board->squares[file_offset][1]);
+  assert_occupation(the_player->pieces[7],
+      the_board->squares[file_offset][6]);
+  // If White, Move Offset Up One, Otherwise Move Down One
+  file_offset += (the_player->color ? -1 : 1);
+  // Pawn
+  for(int i = 0; i < 8; i++) {
+    assert_occupation(the_player->pieces[i + 8],
+        the_board->squares[file_offset][i]);
+  }
+}
+
+void assert_occupation(piece * the_piece, square * the_square) {
+  the_piece->occupation = the_square;
+  the_square->occupation = the_piece;
+}
 
 void debug_game(game * the_game) {
   printf("[GAME]: move no. %u\n", the_game->current_move);

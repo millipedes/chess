@@ -18,7 +18,7 @@ char piece_type_to_char(piece_type type) {
     case QUEEN:  return 'Q';
     case ROOK:   return 'R';
     case BISHOP: return 'B';
-    case KNIGHT: return 'K';
+    case KNIGHT: return 'N';
     case PAWN:   return 'P';
   }
   return '\0';

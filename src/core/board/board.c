@@ -18,7 +18,7 @@ void print_board(board * the_board) {
     for(int j = 0; j < RANKS; j++) {
       if(the_board->squares[i][j]->occupation) {
         print_board_color(the_board->squares[i][j]->occupation->color);
-        printf("%c",
+        printf("%c ",
             piece_type_to_char(the_board->squares[i][j]->occupation->type));
       } else {
         print_board_color(the_board->squares[i][j]->color);
