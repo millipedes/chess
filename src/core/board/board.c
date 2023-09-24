@@ -20,7 +20,7 @@ void print_board(board * the_board) {
         printf(WHITE_CONSOLE_COLOR);
       else
         printf(BLACK_CONSOLE_COLOR);
-      printf("+ ");
+      printf("# ");
       printf(CONSOLE_COLOR_OFF);
     }
     printf("\n");

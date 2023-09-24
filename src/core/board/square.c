@@ -9,11 +9,11 @@ square * init_square(short file, short rank, color_attribute color) {
   return the_square;
 }
 
-void debug_square(square the_square, uint8_t called) {
-  printf("[SQUARE]: %c%hd\n", file_to_algebraic(the_square.file),
-      (the_square.rank + 1));
-  if(the_square.occupation && !(called))
-    debug_piece(*the_square.occupation, 1);
+void debug_square(square * the_square, uint8_t called) {
+  printf("[SQUARE]: %c%hd\n", file_to_algebraic(the_square->file),
+      (the_square->rank + 1));
+  if(the_square->occupation && !(called))
+    debug_piece(the_square->occupation, 1);
   else
     printf("Unoccupied\n");
 }
