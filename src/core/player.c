@@ -3,7 +3,7 @@
 player * init_player(color_attribute color) {
   player * the_player = calloc(1, sizeof(struct PLAYER_T));
   the_player->color = color;
-  the_player->pieces = calloc(QTY_PIECES, sizeof(struct PIECE_T));
+  the_player->pieces = calloc(QTY_PIECES, sizeof(struct PIECE_T *));
   for(int i = 0; i < QTY_PIECES; i++) {
     if(i == 0)
       the_player->pieces[i] = init_piece(KING);
