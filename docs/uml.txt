@@ -1,0 +1,75 @@
+@startuml
+
+enum constants_macros {
+  {field} + RANKS 8
+  {field} + FILES 8
+}
+
+class game {
+  {field} + the_board : board
+  {field} + history : move_history
+  {field} + players : player[2]
+}
+
+class player {
+   {field} + pieces : piece *
+  {method} + void move(board)
+}
+
+class move_history {
+  {field} + white_history : char **
+  {field} + black_history : char **
+  {field} + board_history : board *
+  {field} + current_move : uint32_t
+}
+
+class board {
+  {field} + squares : square[FILES][RANKS]
+}
+
+class square {
+   {field} + occupation : piece *
+   {field} + color : color_attribute
+   {field} + rank : short
+   {field} + file : short
+  {method} + const char * to_algebraic(square)
+}
+
+class piece {
+  {field} + occupation : square *
+  {field} + type : piece_type
+  {field} + color : color_attribute
+}
+
+enum piece_type {
+  {field} + KING
+  {field} + QUEEN
+  {field} + ROOK
+  {field} + BISHOP
+  {field} + KNIGHT
+  {field} + PAWN
+}
+
+enum color_attribute {
+  {field} + BLACK
+  {field} + WHITE
+}
+
+game o--> board
+game o--> move_history
+game o--> player
+
+player o--> piece
+
+move_history o--> board
+
+board o--> square
+board --> constants_macros
+
+square o--> piece
+
+piece o--> square
+piece o--> piece_type
+piece o--> color_attribute
+
+@enduml
