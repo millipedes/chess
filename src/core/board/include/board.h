@@ -11,6 +11,7 @@ typedef struct BOARD_T {
 
 board * init_board(void);
 void print_board(board * the_board);
+void print_board_color(color_attribute color);
 void free_board(board * the_board);
 
 #endif

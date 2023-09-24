@@ -1,7 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "core/include/color_attribute.h"
 #include "core/piece/include/piece.h"
 
 #define QTY_PIECES 16

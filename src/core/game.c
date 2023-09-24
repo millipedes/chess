@@ -9,6 +9,12 @@ game * init_game(void) {
   return the_game;
 }
 
+// void setup_board(player * the_player, board * the_board) {
+//   if(the_player->color == WHITE) {
+//   } else {
+//   }
+// }
+
 void debug_game(game * the_game) {
   printf("[GAME]: move no. %u\n", the_game->current_move);
   print_board(the_game->the_board);

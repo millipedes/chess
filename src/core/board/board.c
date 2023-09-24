@@ -16,15 +16,25 @@ board * init_board(void) {
 void print_board(board * the_board) {
   for(int i = 0; i < FILES; i++) {
     for(int j = 0; j < RANKS; j++) {
-      if(the_board->squares[i][j]->color == WHITE)
-        printf(WHITE_CONSOLE_COLOR);
-      else
-        printf(BLACK_CONSOLE_COLOR);
-      printf("# ");
+      if(the_board->squares[i][j]->occupation) {
+        print_board_color(the_board->squares[i][j]->occupation->color);
+        printf("%c",
+            piece_type_to_char(the_board->squares[i][j]->occupation->type));
+      } else {
+        print_board_color(the_board->squares[i][j]->color);
+        printf("# ");
+      }
       printf(CONSOLE_COLOR_OFF);
     }
     printf("\n");
   }
+}
+
+void print_board_color(color_attribute color) {
+  if(color == WHITE)
+    printf(WHITE_CONSOLE_COLOR);
+  else
+    printf(BLACK_CONSOLE_COLOR);
 }
 
 void free_board(board * the_board) {

@@ -6,17 +6,17 @@ player * init_player(color_attribute color) {
   the_player->pieces = calloc(QTY_PIECES, sizeof(struct PIECE_T *));
   for(int i = 0; i < QTY_PIECES; i++) {
     if(i == 0)
-      the_player->pieces[i] = init_piece(KING);
+      the_player->pieces[i] = init_piece(KING, color);
     else if(i == 1)
-      the_player->pieces[i] = init_piece(QUEEN);
+      the_player->pieces[i] = init_piece(QUEEN, color);
     else if(i == 2 || i == 3)
-      the_player->pieces[i] = init_piece(ROOK);
+      the_player->pieces[i] = init_piece(ROOK, color);
     else if(i == 4 || i == 5)
-      the_player->pieces[i] = init_piece(BISHOP);
+      the_player->pieces[i] = init_piece(BISHOP, color);
     else if(i == 6 || i == 7)
-      the_player->pieces[i] = init_piece(KNIGHT);
+      the_player->pieces[i] = init_piece(KNIGHT, color);
     else
-      the_player->pieces[i] = init_piece(PAWN);
+      the_player->pieces[i] = init_piece(PAWN, color);
   }
   return the_player;
 }
@@ -36,6 +36,6 @@ void free_player(player * the_player) {
         }
         free(the_player->pieces);
       }
-      free(the_player);
-    }
+    free(the_player);
+  }
 }
