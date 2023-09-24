@@ -12,29 +12,27 @@ game * init_game(void) {
 }
 
 void setup_board(player * the_player, board * the_board) {
-  int file_offset = 0;
-  if(the_player->color == WHITE)
-    file_offset = 7;
+  int file_offset = (the_player->color ? 7 : 0);
   // King
-  assert_occupation(the_player->pieces[0],
+  assert_occupation(the_player->pieces[KING_INDEX],
       the_board->squares[file_offset][4]);
   // Queen
-  assert_occupation(the_player->pieces[1],
+  assert_occupation(the_player->pieces[QUEEN_INDEX],
       the_board->squares[file_offset][3]);
   // Rook
-  assert_occupation(the_player->pieces[2],
+  assert_occupation(the_player->pieces[ROOK_ONE_INDEX],
       the_board->squares[file_offset][0]);
-  assert_occupation(the_player->pieces[3],
+  assert_occupation(the_player->pieces[ROOK_TWO_INDEX],
       the_board->squares[file_offset][7]);
   // Bishop
-  assert_occupation(the_player->pieces[4],
+  assert_occupation(the_player->pieces[BISHOP_ONE_INDEX],
       the_board->squares[file_offset][5]);
-  assert_occupation(the_player->pieces[5],
+  assert_occupation(the_player->pieces[BISHOP_TWO_INDEX],
       the_board->squares[file_offset][2]);
   // Knight
-  assert_occupation(the_player->pieces[6],
+  assert_occupation(the_player->pieces[KNIGHT_ONE_INDEX],
       the_board->squares[file_offset][1]);
-  assert_occupation(the_player->pieces[7],
+  assert_occupation(the_player->pieces[KNIGHT_TWO_INDEX],
       the_board->squares[file_offset][6]);
   // If White, Move Offset Up One, Otherwise Move Down One
   file_offset += (the_player->color ? -1 : 1);

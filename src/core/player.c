@@ -5,15 +5,15 @@ player * init_player(color_attribute color) {
   the_player->color = color;
   the_player->pieces = calloc(QTY_PIECES, sizeof(struct PIECE_T *));
   for(int i = 0; i < QTY_PIECES; i++) {
-    if(i == 0)
+    if(i == KING_INDEX)
       the_player->pieces[i] = init_piece(KING, color);
-    else if(i == 1)
+    else if(i == QUEEN_INDEX)
       the_player->pieces[i] = init_piece(QUEEN, color);
-    else if(i == 2 || i == 3)
+    else if(i == ROOK_ONE_INDEX || i == ROOK_TWO_INDEX)
       the_player->pieces[i] = init_piece(ROOK, color);
-    else if(i == 4 || i == 5)
+    else if(i == BISHOP_ONE_INDEX || i == BISHOP_TWO_INDEX)
       the_player->pieces[i] = init_piece(BISHOP, color);
-    else if(i == 6 || i == 7)
+    else if(i == KNIGHT_ONE_INDEX || i == KNIGHT_TWO_INDEX)
       the_player->pieces[i] = init_piece(KNIGHT, color);
     else
       the_player->pieces[i] = init_piece(PAWN, color);

@@ -5,6 +5,15 @@
 
 #define QTY_PIECES 16
 
+#define KING_INDEX 0
+#define QUEEN_INDEX 1
+#define ROOK_ONE_INDEX 2
+#define ROOK_TWO_INDEX 3
+#define BISHOP_ONE_INDEX 4
+#define BISHOP_TWO_INDEX 5
+#define KNIGHT_ONE_INDEX 6
+#define KNIGHT_TWO_INDEX 7
+
 typedef struct PLAYER_T {
   piece ** pieces;
   color_attribute color;
