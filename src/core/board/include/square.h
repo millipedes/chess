@@ -17,8 +17,9 @@ typedef struct SQUARE_T {
   short file;
 } square;
 
-square * init_square(short file, short rank, color_attribute color);
+square * init_square(short rank, short file, color_attribute color);
 void debug_square(square * the_square, uint8_t called);
+short rank_to_algebraic(short rank);
 char file_to_algebraic(short file);
 void free_square(square * the_square);
 

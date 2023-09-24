@@ -12,6 +12,7 @@ game * init_game(void) {
 }
 
 void setup_board(player * the_player, board * the_board) {
+  // Back Row for White is 7 and for Black is 0
   int file_offset = (the_player->color ? 7 : 0);
   // King
   assert_occupation(the_player->pieces[KING_INDEX],
