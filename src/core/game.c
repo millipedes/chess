@@ -44,6 +44,15 @@ void setup_board(player * the_player, board * the_board) {
   }
 }
 
+void move(game * the_game) {
+  the_game->current_move++;
+}
+
+void revert_occupation(piece * the_piece, square * the_square) {
+  the_piece->occupation = NULL;
+  the_square->occupation = NULL;
+}
+
 void assert_occupation(piece * the_piece, square * the_square) {
   the_piece->occupation = the_square;
   the_square->occupation = the_piece;
