@@ -31,7 +31,7 @@ void print_board(board * the_board) {
 }
 
 void print_board_color(color_attribute color) {
-  if(color == WHITE)
+  if(color)
     printf(WHITE_CONSOLE_COLOR);
   else
     printf(BLACK_CONSOLE_COLOR);

@@ -21,7 +21,7 @@ int main(void) {
 
   // TEST: game allocs prints, then frees
   game * the_game = init_game();
-  debug_game(the_game);
+  print_board(the_game->the_board);
   free_game(the_game);
   return 0;
 }

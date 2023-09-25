@@ -1,7 +1,7 @@
 #include "include/square.h"
 #include "core/piece/include/piece.h"
 
-square * init_square(short rank, short file, color_attribute color) {
+square * init_square(uint8_t rank, uint8_t file, color_attribute color) {
   square * the_square = calloc(1, sizeof(struct SQUARE_T));
   the_square->rank = rank;
   the_square->file = file;
@@ -18,11 +18,11 @@ void debug_square(square * the_square, uint8_t called) {
     printf("Unoccupied\n");
 }
 
-short rank_to_algebraic(short rank) {
+uint8_t rank_to_algebraic(uint8_t rank) {
   return 8 - rank;
 }
 
-char file_to_algebraic(short file) {
+char file_to_algebraic(uint8_t file) {
   return (char)(file + 97);
 }
 

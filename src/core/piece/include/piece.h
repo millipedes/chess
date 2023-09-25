@@ -19,6 +19,15 @@ typedef struct PIECE_T {
 } piece;
 
 piece * init_piece(piece_type type, color_attribute color);
+
+uint8_t is_move_valid(piece * the_piece, square * the_square);
+uint8_t is_king_move_valid(piece * the_piece, square * the_square);
+uint8_t is_queen_move_valid(piece * the_piece, square * the_square);
+uint8_t is_rook_move_valid(piece * the_piece, square * the_square);
+uint8_t is_bishop_move_valid(piece * the_piece, square * the_square);
+uint8_t is_knight_move_valid(piece * the_piece, square * the_square);
+uint8_t is_pawn_move_valid(piece * the_piece, square * the_square);
+
 void debug_piece(piece * the_piece, uint8_t called);
 void free_piece(piece * the_piece);
 

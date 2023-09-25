@@ -13,14 +13,14 @@ extern void debug_piece(piece * the_piece, uint8_t called);
 typedef struct SQUARE_T {
   piece * occupation;
   color_attribute color;
-  short rank;
-  short file;
+  uint8_t rank;
+  uint8_t file;
 } square;
 
-square * init_square(short rank, short file, color_attribute color);
+square * init_square(uint8_t rank, uint8_t file, color_attribute color);
 void debug_square(square * the_square, uint8_t called);
-short rank_to_algebraic(short rank);
-char file_to_algebraic(short file);
+uint8_t rank_to_algebraic(uint8_t rank);
+char file_to_algebraic(uint8_t file);
 void free_square(square * the_square);
 
 #endif
