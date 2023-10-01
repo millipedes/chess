@@ -35,6 +35,7 @@ move_list * init_move_list(void) {
 move_list * add_move(move_list * head, move * new_move) {
   if(head->this) {
     move_list * new_node = init_move_list();
+    new_node->this = new_move;
     move_list * tmp = head;
     while(tmp->next) tmp = tmp->next;
     tmp->next = new_node;

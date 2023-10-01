@@ -23,6 +23,7 @@ int main(void) {
   game * the_game = init_game();
   // debug_piece(the_game->players[0]->pieces[8], 0);
   move_piece(the_game, the_game->players[0]->pieces[8], the_game->the_board->squares[4][0]);
+  move_piece(the_game, the_game->players[1]->pieces[8], the_game->the_board->squares[3][0]);
   debug_game(the_game);
   // print_board(the_game->the_board);
   free_game(the_game);
