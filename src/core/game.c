@@ -8,6 +8,7 @@ game * init_game(void) {
   setup_board(the_game->players[0], the_game->the_board);
   setup_board(the_game->players[1], the_game->the_board);
   the_game->current_move = 0;
+  the_game->the_move_list = init_move_list();
   return the_game;
 }
 
@@ -44,12 +45,16 @@ void setup_board(player * the_player, board * the_board) {
   }
 }
 
-void move(game * the_game, piece * the_piece, square * the_square) {
+void move_piece(game * the_game, piece * the_piece, square * the_square) {
   the_game->current_move++;
   if(is_move_valid(the_piece, the_square)) {
+    the_game->the_move_list = add_move(the_game->the_move_list,
+        init_move(the_piece->occupation, the_square, the_piece,
+          the_game->current_move, the_piece->color));
     revert_occupation(the_piece, the_piece->occupation);
     assert_occupation(the_piece, the_square);
-    // log_move
+    if(!the_piece->has_moved)
+      the_piece->has_moved = 1;
   } else {
     fprintf(stderr, "[MOVE]: Invalid Move, Please Try Again\n");
   }
@@ -70,6 +75,7 @@ void debug_game(game * the_game) {
   print_board(the_game->the_board);
   debug_player(the_game->players[0]);
   debug_player(the_game->players[1]);
+  debug_move_list(the_game->the_move_list);
 }
 
 void free_game(game * the_game) {
@@ -80,6 +86,8 @@ void free_game(game * the_game) {
       free_player(the_game->players[0]);
     if(the_game->players[1])
       free_player(the_game->players[1]);
+    if(the_game->the_move_list)
+      free_move_list(the_game->the_move_list);
     free(the_game);
   }
 }

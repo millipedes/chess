@@ -98,7 +98,7 @@ void debug_piece(piece * the_piece, uint8_t called) {
     printf("Has Not Moved\n");
   if(the_piece->occupation && !(called))
     debug_square(the_piece->occupation, 1);
-  else
+  else if(!the_piece->occupation)
     printf("Unoccupied\n");
 }
 

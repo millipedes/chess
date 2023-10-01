@@ -25,6 +25,7 @@ typedef struct MOVE_LIST_T {
 } move_list;
 
 move_list * init_move_list(void);
+move_list * add_move(move_list * head, move * new_move);
 void debug_move_list(move_list * the_move_list);
 void free_move_list(move_list * the_move_list);
 

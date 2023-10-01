@@ -15,7 +15,6 @@ void debug_move(move * the_move) {
   printf("[MOVE]\n");
   debug_square(the_move->to, 0);
   debug_square(the_move->from, 0);
-  debug_piece(the_move->the_piece, 0);
   printf("Move No: %d, Color: %s\n", the_move->move_no,
       color_attribute_to_string(the_move->color));
 }
@@ -31,6 +30,19 @@ move_list * init_move_list(void) {
   the_move_list->this = NULL;
   the_move_list->prev = NULL;
   return the_move_list;
+}
+
+move_list * add_move(move_list * head, move * new_move) {
+  if(head->this) {
+    move_list * new_node = init_move_list();
+    move_list * tmp = head;
+    while(tmp->next) tmp = tmp->next;
+    tmp->next = new_node;
+    new_node->prev = tmp;
+  } else {
+    head->this = new_move;
+  }
+  return head;
 }
 
 void debug_move_list(move_list * the_move_list) {
