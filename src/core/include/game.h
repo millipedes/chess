@@ -14,6 +14,8 @@ typedef struct GAME_T {
 
 game * init_game(void);
 void setup_board(player * the_player, board * the_board);
+void move(game * the_game, piece * the_piece, square * the_square);
+void revert_occupation(piece * the_piece, square * the_square);
 void assert_occupation(piece * the_piece, square * the_square);
 void debug_game(game * the_game);
 void free_game(game * the_game);

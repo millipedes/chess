@@ -14,7 +14,7 @@ void debug_square(square * the_square, uint8_t called) {
       rank_to_algebraic(the_square->rank));
   if(the_square->occupation && !(called))
     debug_piece(the_square->occupation, 1);
-  else
+  else if(!the_square->occupation)
     printf("Unoccupied\n");
 }
 

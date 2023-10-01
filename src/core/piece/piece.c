@@ -76,14 +76,14 @@ uint8_t is_knight_move_valid(piece * the_piece, square * the_square) {
 
 uint8_t is_pawn_move_valid(piece * the_piece, square * the_square) {
   if(the_piece->has_moved) {
-    if(the_piece->occupation->file + 1 == the_square->file
-        && the_piece->occupation->rank == the_square->rank)
+    if(the_piece->occupation->rank - 1 == the_square->rank
+        && the_piece->occupation->file == the_square->file)
       return 1;
     return 0;
   } else {
-    if((the_piece->occupation->file + 1 == the_square->file
-          || the_piece->occupation->file + 2 == the_square->file)
-        && the_piece->occupation->rank == the_square->rank)
+    if((the_piece->occupation->rank - 1 == the_square->rank
+          || the_piece->occupation->rank - 2 == the_square->rank)
+        && the_piece->occupation->file == the_square->file)
       return 1;
     return 0;
   }
