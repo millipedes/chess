@@ -21,6 +21,10 @@ square * init_square(uint8_t rank, uint8_t file, color_attribute color);
 void debug_square(square * the_square, uint8_t called);
 uint8_t rank_to_algebraic(uint8_t rank);
 char file_to_algebraic(uint8_t file);
+
+uint8_t algebraic_rank(char rank);
+uint8_t algebraic_file(char file);
+
 void free_square(square * the_square);
 
 #endif

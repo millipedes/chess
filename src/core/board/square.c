@@ -26,6 +26,14 @@ char file_to_algebraic(uint8_t file) {
   return (char)(file + 97);
 }
 
+uint8_t algebraic_rank(char rank) {
+  return (uint8_t)(rank - 48);
+}
+
+uint8_t algebraic_file(char file) {
+  return (uint8_t)(file - 97);
+}
+
 void free_square(square * the_square) {
   if(the_square)
     free(the_square);
