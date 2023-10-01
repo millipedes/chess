@@ -76,25 +76,28 @@ uint8_t is_knight_move_valid(piece * the_piece, square * the_square) {
 
 uint8_t is_pawn_move_valid(piece * the_piece, square * the_square) {
   if(the_piece->has_moved) {
+    // White Pawn Forward
     if(the_piece->color) {
       if(the_piece->occupation->rank - 1 == the_square->rank
           && the_piece->occupation->file == the_square->file) {
         return 1;
       }
+    // Black Pawn Forward
     } else {
       if(the_piece->occupation->rank + 1 == the_square->rank
           && the_piece->occupation->file == the_square->file) {
         return 1;
       }
     }
-    return 0;
   } else {
+    // White Pawn Forward
     if(the_piece->color) {
       if((the_piece->occupation->rank - 1 == the_square->rank
             || the_piece->occupation->rank - 2 == the_square->rank)
           && the_piece->occupation->file == the_square->file) {
         return 1;
       }
+    // Black Pawn Forward
     } else {
       if((the_piece->occupation->rank + 1 == the_square->rank
             || the_piece->occupation->rank + 2 == the_square->rank)
@@ -102,8 +105,8 @@ uint8_t is_pawn_move_valid(piece * the_piece, square * the_square) {
         return 1;
       }
     }
-    return 0;
   }
+  return 0;
 }
 
 void debug_piece(piece * the_piece, uint8_t called) {

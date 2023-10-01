@@ -5,15 +5,17 @@ project(chess_study)
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(TEST_DIR "${CMAKE_SOURCE_DIR}/tests")
 set(SRC_FILES
-    ${SRC_DIR}/main/main.c
-    ${SRC_DIR}/core/piece/piece.c
-    ${SRC_DIR}/core/piece/piece_type.c
+    ${SRC_DIR}/core/color_attribute.c
+    ${SRC_DIR}/core/game.c
+    ${SRC_DIR}/core/move_history.c
+    ${SRC_DIR}/core/player.c
+    ${SRC_DIR}/core/algebraic_parsing/algebraic_parsing.c
     ${SRC_DIR}/core/board/board.c
     ${SRC_DIR}/core/board/square.c
-    ${SRC_DIR}/core/color_attribute.c
-    ${SRC_DIR}/core/player.c
-    ${SRC_DIR}/core/move_history.c
-    ${SRC_DIR}/core/game.c
+    ${SRC_DIR}/core/io/repl.c
+    ${SRC_DIR}/core/piece/piece.c
+    ${SRC_DIR}/core/piece/piece_type.c
+    ${SRC_DIR}/main/main.c
 )
 
 # Include directories

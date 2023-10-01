@@ -46,8 +46,8 @@ void setup_board(player * the_player, board * the_board) {
 }
 
 void move_piece(game * the_game, piece * the_piece, square * the_square) {
-  the_game->current_move++;
   if(is_move_valid(the_piece, the_square)) {
+    the_game->current_move++;
     the_game->the_move_list = add_move(the_game->the_move_list,
         init_move(the_piece->occupation, the_square, the_piece,
           the_game->current_move, the_piece->color));
